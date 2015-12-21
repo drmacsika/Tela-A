@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Tela 3</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="tela1.css" type="text/css">
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jcanvas.min.js"></script>
+
+
+	<style>
+	#canvas{
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		border: 6px solid purple;
+		-webkit-border-radius: 100px;
+		background: #F6C4E7;
+
+	}
+
+	.next{
+    position: absolute;
+    top: 520px;
+    right: 230px;
+  	}
+
+  	.back{
+    position: absolute;
+    top: 520px;
+    left: 230px;
+  	}
+  	
+	</style>
+	
+</head>
+
+	<body>
+	<canvas id="canvas" width="850" height="490"> </canvas>
+	<audio id="myaudio"> 
+		<source src="recording/5.mp3"></source>
+			Audio
+	</audio>
+
+	<a class="next" href="lettera5.html"> <img src="next2icon.png"></a>
+	<a class="back" href="lettera3.html"> <img src="back2icon.png"></a>
+
+	<script>
+	var audio = $('#myaudio')[0];
+	$('canvas').addLayer({
+		type: 'text',
+		name: 'A',
+		groups: 'lettera3',
+		fillStyle: 'red',
+		fontFamily: 'Comic Sans Ms',
+		fontSize: '130pt',
+		text: 'A',
+		x:170, y:200,
+		click: function() {
+	      audio.play();
+  	},
+	})
+
+	$('canvas').addLayer({
+		type: 'text',
+		name: 'nt',
+		groups: 'lettera3',
+		fillStyle: 'black',
+		fontFamily: 'Comic Sans Ms',
+		fontSize: '130pt',
+		text: 'nt',
+		x:315, y:200 
+
+	})
+
+	$('canvas').addLayer({
+		name: 'apple',
+		type: 'image',
+		source: 'ant.png',
+		x:600, y:280
+	})
+	.drawLayers();
+	
+
+	</script>
+	</body>
+</html>

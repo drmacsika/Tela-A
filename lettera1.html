@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Tela 3</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="tela1.css" type="text/css">
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jcanvas.min.js"></script>
+
+
+	<style>
+	#canvas{
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		border: 6px solid purple;
+		-webkit-border-radius: 100px;
+		background: #F6C4E7;
+
+	}
+
+	.next{
+    position: absolute;
+    top: 520px;
+    right: 230px;
+  }
+	</style>
+	
+</head>
+
+	<body>
+	<canvas id="canvas" onclick="playSound"; width="850" height="490"> </canvas>
+	<audio id="myaudio"> 
+		<source src="recording/5.mp3"></source>
+			Audio
+	</audio>
+
+	<audio id="myaudio2"> 
+		<source src="recording/1.mp3"></source>
+			Audio
+	</audio>
+
+	<audio id="myaudio3"> 
+		<source src="recording/2.mp3"></source>
+			Audio
+	</audio>
+
+	<a class="next" href="lettera2.html"> <img src="next2icon.png"></a>
+	 
+	
+
+<script>
+
+var audio = $('#myaudio')[0];
+var audio2 = $('#myaudio2')[0];
+var audio3 = $('#myaudio3')[0];
+
+$('canvas').drawText({
+  layer: true,
+  name: 'myText',
+  fillStyle: 'red',
+  x: 400, y: 200,
+  fontSize: '350pt',
+  opacity:0,
+  fontFamily: 'Comic Sans Ms',
+  text: 'A', 
+  click: function(){
+  	audio.play();
+  },
+});
+
+$('canvas').animateLayer('myText', {
+	function(){
+  audio2.play();
+},
+});
+
+
+$('canvas')
+	.animateLayer('myText', {
+	  	x: 400, y: 200,
+	  	fontSize: '350pt',
+	  	opacity: 1,
+		}, 2500, function(){
+		$('canvas').animateLayer('myText', {
+		function(){
+  		audio3.play();
+		},
+		strokeStyle: 'black'
+		});	
+		});
+
+
+
+</script>
+	</body>
+</html>

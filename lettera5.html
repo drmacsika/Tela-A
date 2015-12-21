@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Tela 3</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="tela1.css" type="text/css">
+<script src="jquery-2.1.4.min.js"></script>
+<script src="jcanvas.min.js"></script>
+
+
+	<style>
+	#canvas{
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		border: 6px solid purple;
+		-webkit-border-radius: 100px;
+		background: #F6C4E7;
+
+	}
+
+	.next{
+    position: absolute;
+    top: 520px;
+    right: 230px;
+  	}
+
+  	.back{
+    position: absolute;
+    top: 520px;
+    left: 230px;
+  	}
+  	
+	</style>
+	
+</head>
+
+	<body>
+	<canvas id="canvas" width="850" height="490"> </canvas>
+	<audio id="myaudio"> 
+		<source src="recording/5.mp3"></source>
+			Audio
+	</audio>
+
+	<a class="next" href="lettera6.html"> <img src="next2icon.png"></a>
+	<a class="back" href="lettera4.html"> <img src="back2icon.png"></a>
+
+	<script>
+	var audio = $('#myaudio')[0];
+	
+
+	$('canvas').addLayer({
+		type: 'text',
+		name: 'Pl',
+		groups: 'lettera5',
+		fillStyle: 'black',
+		fontFamily: 'Comic Sans Ms',
+		fontSize: '130pt',
+		text: 'Pl',
+		x:110, y:200,
+	})
+
+	$('canvas').addLayer({
+		type:'text',
+		name: 'te',
+		groups: 'lettera5',
+		fillStyle: 'black',
+		fontFamily: 'Comic Sans Ms',
+		fontSize: '130pt',
+		text: 'te',
+		x:345, y:200,
+		
+	})
+
+	$('canvas').addLayer({
+		type: 'image',
+		groups: 'lettera5',
+		name: 'plate',
+		source: 'plate.png',
+		x:640, y:240
+	})
+
+		$('canvas').addLayer({
+		type: 'text',
+		name: 'a',
+		groups: 'lettera5',
+		fillStyle: 'red',
+		fontFamily: 'Comic Sans Ms',
+		fontSize: '130pt',
+		text: 'a',
+		x:215, y:200, 
+		click: function() {
+	    audio.play();
+  	},
+	})
+
+	.drawLayers();
+	 
+	
+
+	</script>
+	</body>
+</html>
